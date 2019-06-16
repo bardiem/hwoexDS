@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55279/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55279/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55279/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Server" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTableCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTableCount" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTableCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTableCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetWorkers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetWorkers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEducations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducations" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEducations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetExperiances_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperiances" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetExperiances_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperiancesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertWorker_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertWorker" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertWorker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertWorkerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEducation" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertExperience_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertExperience" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertExperience_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertExperienceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteTable_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTable" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteTable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetWorker_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorker" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetWorker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducation" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetExperiance_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperiance" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetExperiance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperianceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTableCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTableCount" message="tns:IService1_GetTableCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTableCountResponse" message="tns:IService1_GetTableCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetWorkers" message="tns:IService1_GetWorkers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetWorkersResponse" message="tns:IService1_GetWorkers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEducations" message="tns:IService1_GetEducations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEducationsResponse" message="tns:IService1_GetEducations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExperiances">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetExperiances" message="tns:IService1_GetExperiances_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetExperiancesResponse" message="tns:IService1_GetExperiances_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertWorker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertWorker" message="tns:IService1_InsertWorker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertWorkerResponse" message="tns:IService1_InsertWorker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertEducation" message="tns:IService1_InsertEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertEducationResponse" message="tns:IService1_InsertEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertExperience">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertExperience" message="tns:IService1_InsertExperience_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertExperienceResponse" message="tns:IService1_InsertExperience_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteTable" message="tns:IService1_DeleteTable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteTableResponse" message="tns:IService1_DeleteTable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetWorker" message="tns:IService1_GetWorker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetWorkerResponse" message="tns:IService1_GetWorker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEducation" message="tns:IService1_GetEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEducationResponse" message="tns:IService1_GetEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExperiance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetExperiance" message="tns:IService1_GetExperiance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetExperianceResponse" message="tns:IService1_GetExperiance_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTableCount">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTableCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkers">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetWorkers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducations">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetEducations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExperiances">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetExperiances" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertWorker">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertWorker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEducation">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertEducation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertExperience">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertExperience" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTable">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorker">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetWorker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducation">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetEducation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExperiance">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetExperiance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:55279/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
