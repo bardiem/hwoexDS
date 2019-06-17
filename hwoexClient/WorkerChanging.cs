@@ -36,9 +36,9 @@ namespace hwoexClient
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (this.btnDeleteClick != null)
+            if (this.btnChangeClick != null)
             {
-                this.btnDeleteClick(this, e);
+                this.btnChangeClick(this, e);
             }
         }
 
@@ -51,7 +51,7 @@ namespace hwoexClient
             }
         }
 
-        public event EventHandler btnAddClick;
+        public event EventHandler btnChangeClick;
         public event EventHandler btnDeleteClick;
         public event EventHandler tbTextChanged;
 

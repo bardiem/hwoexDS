@@ -226,7 +226,6 @@ namespace Server
             com.Parameters.AddWithValue("param5", address);
             com.Parameters.AddWithValue("param6", sex);
             com.Parameters.AddWithValue("param7", maritalStatus);
-            //com.Parameters.AddWithValue("param8", new DateTime(int.Parse(bDate[0]), int.Parse(bDate[1]), int.Parse(bDate[2])));
             com.Parameters.AddWithValue("param8", birthDate);
             com.Parameters.AddWithValue("param9", int.Parse(wantedSalary));
             com.Parameters.AddWithValue("param10", wantedPosition);
@@ -260,7 +259,14 @@ namespace Server
             string queryText = "INSERT INTO Education (name, type, owner, location, workerId, startDate, finishDate, faculty, isFinished) VALUES " +
                 "(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9);";
             SqlCommand com = new SqlCommand(queryText, con);
-
+            if(isFinished == "Так")
+            {
+                isFinished = "1";
+            }
+            else
+            {
+                isFinished = "0";
+            }
             com.Parameters.AddWithValue("param1", name);
             com.Parameters.AddWithValue("param2",type);
             com.Parameters.AddWithValue("param3", owner);
@@ -270,7 +276,6 @@ namespace Server
             com.Parameters.AddWithValue("param7", finishDate);
             com.Parameters.AddWithValue("param8", faculty);
             com.Parameters.AddWithValue("param9", isFinished);
-
 
             con.Open();
             int rows = com.ExecuteNonQuery();
@@ -286,16 +291,14 @@ namespace Server
 
             string queryText = "INSERT INTO Experiance (name, size, CEO, type, workerId, position, salary, startDate, finishDate) VALUES " +
                 "(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9);";
-
             SqlCommand com = new SqlCommand(queryText, con);
-
             com.Parameters.AddWithValue("param1", name);
             com.Parameters.AddWithValue("param2", size);
             com.Parameters.AddWithValue("param3", ceo);
             com.Parameters.AddWithValue("param4", type);
             com.Parameters.AddWithValue("param5", workerId);
             com.Parameters.AddWithValue("param6", position);
-            com.Parameters.AddWithValue("param7", salary);
+            com.Parameters.AddWithValue("param7", int.Parse(salary));
             com.Parameters.AddWithValue("param8", startDate);
             com.Parameters.AddWithValue("param9", finishDate);
             con.Open();
@@ -319,89 +322,197 @@ namespace Server
 
         public List<Worker> GetWorker(int id)
         {
-            SqlConnection con = new SqlConnection(conString);
-            SqlCommand com = new SqlCommand("SELECT * FROM Worker WHERE id = " + id, con);
-
-            con.Open();
-
-            SqlDataReader dr = com.ExecuteReader();
-
-            Worker w = new Worker();
-            w.Id = dr[0].ToString();
-            w.Surname = dr[1].ToString();
-            w.Name = dr[2].ToString();
-            w.SecondName = dr[3].ToString();
-            w.City = dr[4].ToString();
-            w.Address = dr[5].ToString();
-            w.Sex = dr[6].ToString();
-            w.MaritalStatus = dr[7].ToString();
-            w.BirthDate = dr[8].ToString();
-            w.WantedSalary = dr[9].ToString();
-            w.WantedPosition = dr[10].ToString();
-            w.CardNumber = dr[11].ToString();
-            w.ChildrenCount = dr[12].ToString();
-
-            dr.Close();
-            con.Close();
             List<Worker> l = new List<Worker>();
+            Worker w = new Worker();
+            try
+            {
+                SqlConnection con = new SqlConnection(conString);
+                SqlCommand com = new SqlCommand("SELECT * FROM Worker WHERE id=@id", con);
+                com.Parameters.AddWithValue("id", id);
+                con.Open();
+
+                SqlDataReader dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    w.Id = dr[0].ToString();
+                    w.Surname = dr[1].ToString();
+                    w.Name = dr[2].ToString();
+                    w.SecondName = dr[3].ToString();
+                    w.City = dr[4].ToString();
+                    w.Address = dr[5].ToString();
+                    w.Sex = dr[6].ToString();
+                    w.MaritalStatus = dr[7].ToString();
+                    w.BirthDate = dr[8].ToString();
+                    w.WantedSalary = dr[9].ToString();
+                    w.WantedPosition = dr[10].ToString();
+                    w.CardNumber = dr[11].ToString();
+                    w.ChildrenCount = dr[12].ToString();
+                }
+                dr.Close();
+                con.Close();
+            }
+            catch (Exception) { }
+
             l.Add(w);
             return l;
         }
 
         public List<Education> GetEducation(int id)
         {
-            SqlConnection con = new SqlConnection(conString);
-            SqlCommand com = new SqlCommand("SELECT * FROM Education WHERE id =" + id, con);
-
-            con.Open();
-
-            SqlDataReader dr = com.ExecuteReader();
-
-            Education e = new Education();
-            e.Id = dr[0].ToString();
-            e.Name = dr[1].ToString();
-            e.WorkerId = dr[2].ToString();
-            e.StartDate = dr[3].ToString();
-            e.FinishDate = dr[4].ToString();
-            e.Faculty = dr[5].ToString();
-            e.IsFinished = dr[6].ToString();
-            e.Type = dr[7].ToString();
-            e.Owner = dr[8].ToString();
-            e.Location = dr[9].ToString();
-
-            dr.Close();
-            con.Close();
             List<Education> l = new List<Education>();
+            Education e = new Education();
+            try
+            {
+                SqlConnection con = new SqlConnection(conString);
+                SqlCommand com = new SqlCommand("SELECT * FROM Education WHERE id = @id", con);
+                com.Parameters.AddWithValue("id", id);
+                con.Open();
+                SqlDataReader dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    e.Id = dr[0].ToString();
+                    e.Name = dr[1].ToString();
+                    e.WorkerId = dr[2].ToString();
+                    e.StartDate = dr[3].ToString();
+                    e.FinishDate = dr[4].ToString();
+                    e.Faculty = dr[5].ToString();
+                    e.IsFinished = dr[6].ToString();
+                    e.Type = dr[7].ToString();
+                    e.Owner = dr[8].ToString();
+                    e.Location = dr[9].ToString();
+                }
+                dr.Close();
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+            }
             l.Add(e);
             return l;
         }
 
         public List<Experiance> GetExperiance(int id)
         {
-            SqlConnection con = new SqlConnection(conString);
-            SqlCommand com = new SqlCommand("SELECT * FROM Experiance WHERE id = " + id, con);
-
-            con.Open();
-
-            SqlDataReader dr = com.ExecuteReader();
-
-            Experiance e = new Experiance();
-            e.Id = dr[0].ToString();
-            e.Name = dr[1].ToString();
-            e.Size = dr[2].ToString();
-            e.Ceo = dr[3].ToString();
-            e.Type = dr[4].ToString();
-            e.WorkerId = dr[5].ToString();
-            e.Position = dr[6].ToString();
-            e.Salary = dr[7].ToString();
-            e.StartDate = dr[8].ToString();
-            e.FinishDate = dr[9].ToString();
-
-            dr.Close();
-            con.Close();
             List<Experiance> l = new List<Experiance>();
+            Experiance e = new Experiance();
+
+            try
+            {
+                SqlConnection con = new SqlConnection(conString);
+                SqlCommand com = new SqlCommand("SELECT * FROM Experiance WHERE id = @id", con);
+                com.Parameters.AddWithValue("id", id);
+                con.Open();
+                SqlDataReader dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    e.Id = dr[0].ToString();
+                    e.Name = dr[1].ToString();
+                    e.Size = dr[2].ToString();
+                    e.Ceo = dr[3].ToString();
+                    e.Type = dr[4].ToString();
+                    e.WorkerId = dr[5].ToString();
+                    e.Position = dr[6].ToString();
+                    e.Salary = dr[7].ToString();
+                    e.StartDate = dr[8].ToString();
+                    e.FinishDate = dr[9].ToString();
+                }
+                dr.Close();
+                con.Close();
+            } catch(Exception)
+            {
+            }
+
             l.Add(e);
             return l;
+        }
+
+
+        public void UpdateWorker(string id, string surname, string name, string secondName, string city, string address, string sex, string maritalStatus,
+            string birthDate, string wantedSalary, string wantedPosition, string cardNumber, string childrenCount)
+        {
+            SqlConnection con = new SqlConnection(conString);
+
+            string queryText = "UPDATE Worker SET surname = @surname, name = @name, secondName = @secondName, city = @city, address = @address," +
+                " sex = @sex, maritalStatus = @maritalStatus, birthDate = @birthDate, wantedSalary = @wantedSalary," +
+             "wantedPosition = @wantedPosition, cardNumber = @cardNumber, childrenCount = @childrenCount WHERE id = @id";
+
+            SqlCommand com = new SqlCommand(queryText, con);
+
+            com.Parameters.AddWithValue("id", int.Parse(id));
+            com.Parameters.AddWithValue("surname", surname);
+            com.Parameters.AddWithValue("name", name);
+            com.Parameters.AddWithValue("secondName", secondName);
+            com.Parameters.AddWithValue("city", city);
+            com.Parameters.AddWithValue("address", address);
+            com.Parameters.AddWithValue("sex", sex);
+            com.Parameters.AddWithValue("maritalStatus", maritalStatus);
+            com.Parameters.AddWithValue("birthDate", birthDate);
+            com.Parameters.AddWithValue("wantedSalary", int.Parse(wantedSalary));
+            com.Parameters.AddWithValue("wantedPosition", wantedPosition);
+            com.Parameters.AddWithValue("cardNumber", cardNumber);
+            com.Parameters.AddWithValue("childrenCount", int.Parse(childrenCount));
+
+            con.Open();
+            int rows = com.ExecuteNonQuery();
+            con.Close();
+
+            
+        }
+
+        public void UpdateEducation(string id, string name, string type, string owner, string location, string startDate, string finishDate, 
+            string faculty,string isFinished)
+        {
+            SqlConnection con = new SqlConnection(conString);
+
+            string queryText = "Update Education SET name = @param1, type = @param2, owner = @param3, location = @param4, startDate = @param5," +
+                " finishDate = @param6, faculty = @param7, isFinished = @param8 WHERE id = @id";
+            SqlCommand com = new SqlCommand(queryText, con);
+
+            if (isFinished == "Так")
+            {
+                isFinished = "1";
+            }
+            else if (isFinished  == "Ні")
+            {
+                isFinished = "0";
+            }
+
+            com.Parameters.AddWithValue("id", int.Parse(id));
+            com.Parameters.AddWithValue("param1", name);
+            com.Parameters.AddWithValue("param2", type);
+            com.Parameters.AddWithValue("param3", owner);
+            com.Parameters.AddWithValue("param4", location);
+            com.Parameters.AddWithValue("param5", startDate);
+            com.Parameters.AddWithValue("param6", finishDate);
+            com.Parameters.AddWithValue("param7", faculty);
+            com.Parameters.AddWithValue("param8", isFinished);
+            
+
+            con.Open();
+            int rows = com.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public void UpdateExperiance(int id, string name, int size, string ceo, string type, string position, int salary, string startDate, string finishDate)
+        {
+            SqlConnection con = new SqlConnection(conString);
+
+            string queryText = "UPDATE Experiance SET name = @name, size = @size, CEO = @ceo, type = @type, position = @position," +
+                " salary = @salary, startDate = @startDate, finishDate = @finishDate WHERE id = @id ";
+            SqlCommand com = new SqlCommand(queryText, con);
+            com.Parameters.AddWithValue("id", id);
+            com.Parameters.AddWithValue("name", name);
+            com.Parameters.AddWithValue("size", size);
+            com.Parameters.AddWithValue("ceo", ceo);
+            com.Parameters.AddWithValue("type", type);
+            com.Parameters.AddWithValue("position", position);
+            com.Parameters.AddWithValue("salary", salary);
+            com.Parameters.AddWithValue("startDate", startDate);
+            com.Parameters.AddWithValue("finishDate", finishDate);
+            con.Open();
+            int rows = com.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

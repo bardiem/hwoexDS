@@ -148,18 +148,17 @@ namespace hwoexClient
 
             foreach (Experiance key in experiances)
             {
-                int i = 0;
                 string[] str = new string[cols];
-                str[i++] = key.Id;
-                str[i++] = key.Name;
-                str[i++] = key.Size;
-                str[i++] = key.Ceo;
-                str[i++] = key.Type;
-                str[i++] = key.WorkerId;
-                str[i++] = key.Position;
-                str[i++] = key.Salary;
-                str[i++] = key.StartDate;
-                str[i++] = key.FinishDate;
+                str[0] = key.Id;
+                str[5] = key.Name;
+                str[6] = key.Size;
+                str[7] = key.Ceo;
+                str[8] = key.Type;
+                str[9] = key.WorkerId;
+                str[1] = key.Position;
+                str[2] = key.Salary;
+                str[3] = key.StartDate;
+                str[4] = key.FinishDate;
                 table.Rows.Add(str);
             }
             return table;

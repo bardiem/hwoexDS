@@ -83,30 +83,27 @@
             // 
             // textBox2C
             // 
-            this.textBox2C.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBox2C.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textBox2C.Location = new System.Drawing.Point(144, 74);
             this.textBox2C.Name = "textBox2C";
             this.textBox2C.Size = new System.Drawing.Size(143, 20);
             this.textBox2C.TabIndex = 43;
-            this.textBox2C.Text = "(Необов\'язково)";
             // 
             // textBox3C
             // 
-            this.textBox3C.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBox3C.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textBox3C.Location = new System.Drawing.Point(144, 127);
             this.textBox3C.Name = "textBox3C";
             this.textBox3C.Size = new System.Drawing.Size(143, 20);
             this.textBox3C.TabIndex = 42;
-            this.textBox3C.Text = "(Необов\'язково)";
             // 
             // textBox4C
             // 
-            this.textBox4C.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBox4C.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textBox4C.Location = new System.Drawing.Point(144, 174);
             this.textBox4C.Name = "textBox4C";
             this.textBox4C.Size = new System.Drawing.Size(143, 20);
             this.textBox4C.TabIndex = 41;
-            this.textBox4C.Text = "(Необов\'язково)";
             // 
             // textBox8C
             // 

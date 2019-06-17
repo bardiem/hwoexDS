@@ -51,6 +51,28 @@ namespace Server
         [OperationContract]
         List<Experiance> GetExperiance(int id);
 
+        [OperationContract]
+        void UpdateWorker(string id, string surname, string name, string secondName, string city, string address, string sex, string maritalStatus,
+            string birthDate, string wantedSalary, string wantedPosition, string cardNumber, string childrenCount);
+
+        [OperationContract]
+        void UpdateEducation(string id, string name, string type, string owner, string location, string startDate, string finishDate,
+            string faculty, string isFinished);
+
+        [OperationContract]
+        void UpdateExperiance(int id, string name, int size, string ceo, string type, string position, int salary, string startDate, string finishDate);
+
+
+        [OperationContract]
+        List<Worker> SelectFromWorkers();
+
+        [OperationContract]
+        List<Education> SelectFromEducation();
+
+        [OperationContract]
+        List<Experiance> SelectFromExperiance();
+
+
     }
 
 

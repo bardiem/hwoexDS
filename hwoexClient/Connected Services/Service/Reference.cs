@@ -703,6 +703,24 @@ namespace hwoexClient.Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetExperiance", ReplyAction="http://tempuri.org/IService1/GetExperianceResponse")]
         System.Threading.Tasks.Task<hwoexClient.Service.Experiance[]> GetExperianceAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateWorker", ReplyAction="http://tempuri.org/IService1/UpdateWorkerResponse")]
+        void UpdateWorker(string id, string surname, string name, string secondName, string city, string address, string sex, string maritalStatus, string birthDate, string wantedSalary, string wantedPosition, string cardNumber, string childrenCount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateWorker", ReplyAction="http://tempuri.org/IService1/UpdateWorkerResponse")]
+        System.Threading.Tasks.Task UpdateWorkerAsync(string id, string surname, string name, string secondName, string city, string address, string sex, string maritalStatus, string birthDate, string wantedSalary, string wantedPosition, string cardNumber, string childrenCount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateEducation", ReplyAction="http://tempuri.org/IService1/UpdateEducationResponse")]
+        void UpdateEducation(string id, string name, string type, string owner, string location, string startDate, string finishDate, string faculty, string isFinished);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateEducation", ReplyAction="http://tempuri.org/IService1/UpdateEducationResponse")]
+        System.Threading.Tasks.Task UpdateEducationAsync(string id, string name, string type, string owner, string location, string startDate, string finishDate, string faculty, string isFinished);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateExperiance", ReplyAction="http://tempuri.org/IService1/UpdateExperianceResponse")]
+        void UpdateExperiance(int id, string name, int size, string ceo, string type, string position, int salary, string startDate, string finishDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateExperiance", ReplyAction="http://tempuri.org/IService1/UpdateExperianceResponse")]
+        System.Threading.Tasks.Task UpdateExperianceAsync(int id, string name, int size, string ceo, string type, string position, int salary, string startDate, string finishDate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -826,6 +844,30 @@ namespace hwoexClient.Service {
         
         public System.Threading.Tasks.Task<hwoexClient.Service.Experiance[]> GetExperianceAsync(int id) {
             return base.Channel.GetExperianceAsync(id);
+        }
+        
+        public void UpdateWorker(string id, string surname, string name, string secondName, string city, string address, string sex, string maritalStatus, string birthDate, string wantedSalary, string wantedPosition, string cardNumber, string childrenCount) {
+            base.Channel.UpdateWorker(id, surname, name, secondName, city, address, sex, maritalStatus, birthDate, wantedSalary, wantedPosition, cardNumber, childrenCount);
+        }
+        
+        public System.Threading.Tasks.Task UpdateWorkerAsync(string id, string surname, string name, string secondName, string city, string address, string sex, string maritalStatus, string birthDate, string wantedSalary, string wantedPosition, string cardNumber, string childrenCount) {
+            return base.Channel.UpdateWorkerAsync(id, surname, name, secondName, city, address, sex, maritalStatus, birthDate, wantedSalary, wantedPosition, cardNumber, childrenCount);
+        }
+        
+        public void UpdateEducation(string id, string name, string type, string owner, string location, string startDate, string finishDate, string faculty, string isFinished) {
+            base.Channel.UpdateEducation(id, name, type, owner, location, startDate, finishDate, faculty, isFinished);
+        }
+        
+        public System.Threading.Tasks.Task UpdateEducationAsync(string id, string name, string type, string owner, string location, string startDate, string finishDate, string faculty, string isFinished) {
+            return base.Channel.UpdateEducationAsync(id, name, type, owner, location, startDate, finishDate, faculty, isFinished);
+        }
+        
+        public void UpdateExperiance(int id, string name, int size, string ceo, string type, string position, int salary, string startDate, string finishDate) {
+            base.Channel.UpdateExperiance(id, name, size, ceo, type, position, salary, startDate, finishDate);
+        }
+        
+        public System.Threading.Tasks.Task UpdateExperianceAsync(int id, string name, int size, string ceo, string type, string position, int salary, string startDate, string finishDate) {
+            return base.Channel.UpdateExperianceAsync(id, name, size, ceo, type, position, salary, startDate, finishDate);
         }
     }
 }

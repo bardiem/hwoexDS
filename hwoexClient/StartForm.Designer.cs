@@ -334,6 +334,7 @@
             this.companiesChanging1.Size = new System.Drawing.Size(762, 477);
             this.companiesChanging1.TabIndex = 16;
             this.companiesChanging1.Visible = false;
+            this.companiesChanging1.btnChangingClick += new System.EventHandler(this.companiesChanging1_btnChangingClick);
             this.companiesChanging1.btnDeleteClick += new System.EventHandler(this.companiesChanging1_btnDeleteClick);
             this.companiesChanging1.tbTextChanged += new System.EventHandler(this.companiesChanging1_tbTextChanged);
             // 
@@ -344,6 +345,7 @@
             this.educationChanging1.Size = new System.Drawing.Size(762, 477);
             this.educationChanging1.TabIndex = 15;
             this.educationChanging1.Visible = false;
+            this.educationChanging1.btnChangeClick += new System.EventHandler(this.educationChanging1_btnChangeClick);
             this.educationChanging1.btnDeleteClick += new System.EventHandler(this.educationChanging1_btnDeleteClick);
             this.educationChanging1.tbTextChanged += new System.EventHandler(this.educationChanging1_tbTextChanged);
             // 
@@ -371,13 +373,13 @@
             this.workerChanging1.Size = new System.Drawing.Size(762, 477);
             this.workerChanging1.TabIndex = 12;
             this.workerChanging1.Visible = false;
+            this.workerChanging1.btnChangeClick += new System.EventHandler(this.workerChanging1_btnAddClick);
             this.workerChanging1.btnDeleteClick += new System.EventHandler(this.workerChanging1_btnDeleteClick);
             this.workerChanging1.tbTextChanged += new System.EventHandler(this.workerChanging1_tbTextChanged);
             // 
             // faq1
             // 
             this.faq1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.faq1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("faq1.BackgroundImage")));
             this.faq1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.faq1.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.faq1.Location = new System.Drawing.Point(151, 27);

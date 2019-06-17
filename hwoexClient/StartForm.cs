@@ -27,8 +27,6 @@ namespace hwoexClient
         private void StartForm_Load(object sender, EventArgs e)
         {
             workerReview1.DataView.DataSource = db.FillWorkers(service.GetWorkers());
-            companiesReview1.DataView.DataSource = db.FillExperiance(service.GetExperiances());
-            educationReview1.DataView.DataSource = db.FillEducation(service.GetEducations());
         }
 
 
@@ -109,6 +107,7 @@ namespace hwoexClient
 
         private void button3_Click(object sender, EventArgs e)
         {
+            workerReview1.DataView.DataSource = db.FillWorkers(service.GetWorkers());
             sidePanel1.Top = button3.Top;
             sidePanel1.Height = button3.Height;
             HidePanels();
@@ -144,6 +143,7 @@ namespace hwoexClient
             if (sidePanel1.Top == button3.Top)
             {
                 companiesReview1.Visible = true;
+                companiesReview1.DataView.DataSource = db.FillExperiance(service.GetExperiances());
                 button1P.Visible = false;
                 button2P.Visible = false;
                 button3P.Visible = true;
@@ -166,6 +166,7 @@ namespace hwoexClient
             if (sidePanel1.Top == button3.Top)
             {
                 educationReview1.Visible = true;
+                educationReview1.DataView.DataSource = db.FillEducation(service.GetEducations());
                 button1P.Visible = false;
                 button2P.Visible = true;
                 button3P.Visible = false;
@@ -187,6 +188,7 @@ namespace hwoexClient
             if (sidePanel1.Top == button3.Top)
             {
                 workerReview1.Visible = true;
+                workerReview1.DataView.DataSource = db.FillWorkers(service.GetWorkers());
                 button1P.Visible = true;
                 button2P.Visible = false;
                 button3P.Visible = false;
@@ -338,7 +340,7 @@ namespace hwoexClient
             int i = 0;
             try
             {
-                i = int.Parse(companiesChanging1.TextBoxID.Text);
+                i = int.Parse(educationChanging1.TextBoxID.Text);
                 educationChanging1.DataView.DataSource = db.FillEducation(service.GetEducation(i));
             }
             catch (Exception) { }
@@ -349,10 +351,59 @@ namespace hwoexClient
             int i = 0;
             try
             {
-                i = int.Parse(companiesChanging1.TextBoxID.Text);
+                i = int.Parse(workerChanging1.TextBoxID.Text);
                 workerChanging1.DataView.DataSource = db.FillWorkers(service.GetWorker(i));
             }
             catch (Exception) { }
+        }
+
+        private void companiesChanging1_btnChangingClick(object sender, EventArgs e)
+        {
+            string message = "Ви впевненi що хочете оновити запис #" + companiesChanging1.TextBoxID.Text + "?";
+            string caption = "Оновлення запису";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, caption, buttons);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                service.UpdateExperiance(int.Parse(companiesChanging1.TextBoxID.Text), companiesChanging1.TextBox1.Text, int.Parse(companiesChanging1.TextBox2.Text),
+                    companiesChanging1.TextBox3.Text, companiesChanging1.TextBox4.Text, companiesChanging1.TextBox5.Text, int.Parse(companiesChanging1.TextBox6.Text),
+                    companiesChanging1.TextBox7.Text, companiesChanging1.TextBox8.Text);
+                companiesChanging1.ClearTextBoxes();
+            }
+        }
+
+        private void educationChanging1_btnChangeClick(object sender, EventArgs e)
+        {
+            string message = "Ви впевненi що хочете оновити запис #" + educationChanging1.TextBoxID.Text + "?";
+            string caption = "Оновлення запису";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, caption, buttons);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                service.UpdateEducation(educationChanging1.TextBoxID.Text, educationChanging1.TextBox1.Text, educationChanging1.TextBox2.Text,
+                    educationChanging1.TextBox3.Text, educationChanging1.TextBox4.Text, educationChanging1.TextBox5.Text, educationChanging1.TextBox6.Text,
+                    educationChanging1.TextBox7.Text, educationChanging1.TextBox8.Text);
+                educationChanging1.ClearTextBoxes();
+            }
+        }
+
+        private void workerChanging1_btnAddClick(object sender, EventArgs e)
+        {
+            string message = "Ви впевненi що хочете оновити запис #" + workerChanging1.TextBoxID.Text + "?";
+            string caption = "Оновлення запису";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, caption, buttons);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                service.UpdateWorker(workerChanging1.TextBoxID.Text, workerChanging1.TextBox1.Text, workerChanging1.TextBox2.Text,
+                    workerChanging1.TextBox3.Text, workerChanging1.TextBox4.Text, workerChanging1.TextBox5.Text, workerChanging1.TextBox6.Text,
+                    workerChanging1.TextBox7.Text, workerChanging1.TextBox8.Text, workerChanging1.TextBox9.Text, workerChanging1.TextBox10.Text,
+                    workerChanging1.TextBox11.Text, workerChanging1.TextBox12.Text);
+                workerChanging1.ClearTextBoxes();
+            }
         }
     }
 }

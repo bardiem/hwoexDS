@@ -79,6 +79,24 @@
   <wsdl:message name="IService1_GetExperiance_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetExperianceResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdateWorker_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWorker" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateWorker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWorkerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducation" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateExperiance_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExperiance" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateExperiance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExperianceResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -127,6 +145,18 @@
     <wsdl:operation name="GetExperiance">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetExperiance" message="tns:IService1_GetExperiance_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetExperianceResponse" message="tns:IService1_GetExperiance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateWorker" message="tns:IService1_UpdateWorker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateWorkerResponse" message="tns:IService1_UpdateWorker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateEducation" message="tns:IService1_UpdateEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateEducationResponse" message="tns:IService1_UpdateEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExperiance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateExperiance" message="tns:IService1_UpdateExperiance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateExperianceResponse" message="tns:IService1_UpdateExperiance_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -232,6 +262,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetExperiance">
       <soap:operation soapAction="http://tempuri.org/IService1/GetExperiance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorker">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateWorker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducation">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateEducation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExperiance">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateExperiance" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
