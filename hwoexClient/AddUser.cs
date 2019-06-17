@@ -128,9 +128,9 @@ namespace hwoexClient
 
             }
 
-            if (this.btnAddExperianceClick != null)
+            if (this.btnAddEducationClick != null)
             {
-                this.btnAddExperianceClick(this, e);
+                this.btnAddEducationClick(this, e);
             }
         }
 
@@ -146,18 +146,7 @@ namespace hwoexClient
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (textBox1C.Text == "" || textBox5C.Text == "" || textBox6C.Text == "" || textBox7C.Text == "" || textBox8C.Text == "")
-            {
-                MessageBox.Show(
-                 "Заповніть всі обо'язкові поля!",
-                 "Повідомлення",
-                 MessageBoxButtons.OK,
-                 MessageBoxIcon.Stop);
-            }
 
-        }
 
         private void textBox2C_Click(object sender, EventArgs e)
         {
