@@ -243,4 +243,59 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="SelectFromWorkers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="surname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="martialStatus" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="wantedSalary" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="wantedPositon" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="childrenCount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectFromWorkersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Server" minOccurs="0" name="SelectFromWorkersResult" nillable="true" type="q7:ArrayOfWorker" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectFromEducation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="owner" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="faculty" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectFromEducationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Server" minOccurs="0" name="SelectFromEducationResult" nillable="true" type="q8:ArrayOfEducation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectFromExperiance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="size" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ceo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectFromExperianceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Server" minOccurs="0" name="SelectFromExperianceResult" nillable="true" type="q9:ArrayOfExperiance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

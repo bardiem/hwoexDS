@@ -97,6 +97,24 @@
   <wsdl:message name="IService1_UpdateExperiance_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateExperianceResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SelectFromWorkers_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFromWorkers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectFromWorkers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFromWorkersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectFromEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFromEducation" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectFromEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFromEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectFromExperiance_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFromExperiance" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectFromExperiance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFromExperianceResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -157,6 +175,18 @@
     <wsdl:operation name="UpdateExperiance">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateExperiance" message="tns:IService1_UpdateExperiance_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateExperianceResponse" message="tns:IService1_UpdateExperiance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectFromWorkers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectFromWorkers" message="tns:IService1_SelectFromWorkers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectFromWorkersResponse" message="tns:IService1_SelectFromWorkers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectFromEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectFromEducation" message="tns:IService1_SelectFromEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectFromEducationResponse" message="tns:IService1_SelectFromEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectFromExperiance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectFromExperiance" message="tns:IService1_SelectFromExperiance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectFromExperianceResponse" message="tns:IService1_SelectFromExperiance_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -289,6 +319,33 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateExperiance">
       <soap:operation soapAction="http://tempuri.org/IService1/UpdateExperiance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectFromWorkers">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectFromWorkers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectFromEducation">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectFromEducation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectFromExperiance">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectFromExperiance" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

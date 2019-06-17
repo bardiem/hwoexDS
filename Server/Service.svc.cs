@@ -512,27 +512,70 @@ namespace Server
             con.Close();
         }
 
-        public List<Worker> SelectFromWorkers(string surname, string name, string city, string address, string martialStatus, string salary, string childrenCount)
+        public List<Worker> SelectFromWorkers(string surname, string name, string city, string address, string martialStatus,
+            string wantedSalary, string wantedPosition, string childrenCount)
         {
             List<Worker> l = new List<Worker>();
+            
             try
             {
                 SqlConnection con = new SqlConnection(conString);
-                SqlCommand com;
-                com = con.CreateCommand();
-
-                if(surname != "")
-                {
-                    com.CommandText = "SELECT * FROM Workers WHERE surname = @surname";
+                SqlCommand com = new SqlCommand("SELECT * FROM Worker", con);
+                if (surname != "") {
+                    com = new SqlCommand("SELECT * FROM Worker WHERE surname = @surname", con);
                     com.Parameters.AddWithValue("surname", surname);
                 }
+                if (surname != "" && name != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Worker WHERE surname = @surname AND name = @name", con);
+                    com.Parameters.AddWithValue("surname", surname);
+                    com.Parameters.AddWithValue("name", name);
+                }
+                if (city != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Worker WHERE city = @city", con);
+                    com.Parameters.AddWithValue("city", surname);
+                }
+                if (address != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Worker WHERE address = @address", con);
+                    com.Parameters.AddWithValue("address", address);
+                }
+                if(martialStatus != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Worker WHERE martialStatus = @martialStatus", con);
+                    com.Parameters.AddWithValue("martialStatus", martialStatus);
+                }
+                if(wantedSalary != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Worker WHERE wantedSalary < @wantedSalary", con);
+                    com.Parameters.AddWithValue("wantedSalary", wantedSalary);
+                }
+                if(wantedPosition != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Worker WHERE wantedPositon =  @wantedPosition", con);
+                    com.Parameters.AddWithValue("wantedPosition", wantedPosition);
+                }
+                if(childrenCount != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Worker WHERE childrenCount <  @childrenCount", con);
+                    com.Parameters.AddWithValue("childrenCount", childrenCount);
+                }
 
-
-
-
-
-
+                if (city != ""  && martialStatus != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Worker WHERE city = @city AND martialStatus = @martialStatus", con);
+                    com.Parameters.AddWithValue("city", city);
+                    com.Parameters.AddWithValue("martialStatus", martialStatus);
+                }
+                if (wantedSalary != "" && wantedPosition != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Worker WHERE wantedSalary < @wantedSalary AND wantedPosition = @wantedPosition", con);
+                    com.Parameters.AddWithValue("wantedSalary", wantedSalary);
+                    com.Parameters.AddWithValue("wantedPosition", wantedPosition);
+                }
                 con.Open();
+
                 SqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -556,19 +599,130 @@ namespace Server
                 con.Close();
             }
             catch (Exception) { }
-
-            
             return l;
         }
 
+
         public List<Education> SelectFromEducation(string name, string type, string owner, string faculty)
         {
-            throw new NotImplementedException();
+            List<Education> l = new List<Education>();
+
+            try
+            {
+                SqlConnection con = new SqlConnection(conString);
+                SqlCommand com = new SqlCommand("SELECT * FROM Education", con);
+                if (name != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Education WHERE name = @name", con);
+                    com.Parameters.AddWithValue("name", name);
+                }
+                if (type != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Education WHERE type = @type", con);
+                    com.Parameters.AddWithValue("type", type);
+                }
+                if (owner != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Education WHERE owner = @owner", con);
+                    com.Parameters.AddWithValue("owner", owner);
+                }
+                if (faculty!= "")
+                {
+                    com = new SqlCommand("SELECT * FROM Education WHERE faculty = @faculty", con);
+                    com.Parameters.AddWithValue("faculty", faculty);
+                }
+                if(type != "" && faculty != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Education WHERE type = @type AND faculty = @faculty", con);
+                    com.Parameters.AddWithValue("type", type);
+                    com.Parameters.AddWithValue("faculty", faculty);
+                }
+                if (type!="" && owner != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Education WHERE type = @type AND owner = @owner", con);
+                    com.Parameters.AddWithValue("type", type);
+                    com.Parameters.AddWithValue("owner", owner);
+                }
+                con.Open();
+
+                SqlDataReader dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    Education e = new Education();
+                    e.Id = dr[0].ToString();
+                    e.Name = dr[1].ToString();
+                    e.WorkerId = dr[2].ToString();
+                    e.StartDate = dr[3].ToString();
+                    e.FinishDate = dr[4].ToString();
+                    e.Faculty = dr[5].ToString();
+                    e.IsFinished = dr[6].ToString();
+                    e.Type = dr[7].ToString();
+                    e.Owner = dr[8].ToString();
+                    e.Location = dr[9].ToString();
+                    l.Add(e);
+                }
+                dr.Close();
+                con.Close();
+            }
+            catch (Exception) { }
+            return l;
         }
 
         public List<Experiance> SelectFromExperiance(string name, string size, string ceo, string type)
         {
-            throw new NotImplementedException();
+            List<Experiance> l = new List<Experiance>();
+
+            try
+            {
+                SqlConnection con = new SqlConnection(conString);
+                SqlCommand com = new SqlCommand("SELECT * FROM Experiance", con);
+                if (name != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Experiance WHERE name = @name", con);
+                    com.Parameters.AddWithValue("name", name);
+                }
+
+                if (size != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Experiance WHERE size > @size", con);
+                    com.Parameters.AddWithValue("size", size);
+                }
+
+                if (ceo != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Experiance WHERE ceo = @ceo", con);
+                    com.Parameters.AddWithValue("ceo", ceo);
+                }
+
+                if (type != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Experiance WHERE type = @type", con);
+                    com.Parameters.AddWithValue("type", type);
+                }
+
+                con.Open();
+
+                SqlDataReader dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    Experiance e = new Experiance();
+                    e.Id = dr[0].ToString();
+                    e.Name = dr[1].ToString();
+                    e.Size = dr[2].ToString();
+                    e.Ceo = dr[3].ToString();
+                    e.Type = dr[4].ToString();
+                    e.WorkerId = dr[5].ToString();
+                    e.Position = dr[6].ToString();
+                    e.Salary = dr[7].ToString();
+                    e.StartDate = dr[8].ToString();
+                    e.FinishDate = dr[9].ToString();
+                    l.Add(e);
+                }
+                dr.Close();
+                con.Close();
+            }
+            catch (Exception) { }
+            return l;
         }
     }
 }

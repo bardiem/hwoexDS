@@ -325,7 +325,7 @@
             this.companiesReview1.Size = new System.Drawing.Size(762, 477);
             this.companiesReview1.TabIndex = 17;
             this.companiesReview1.Visible = false;
-            this.companiesReview1.Load += new System.EventHandler(this.companiesReview1_Load);
+            this.companiesReview1.btnSearchClick += new System.EventHandler(this.companiesReview1_btnSearchClick);
             // 
             // companiesChanging1
             // 
@@ -356,6 +356,7 @@
             this.educationReview1.Size = new System.Drawing.Size(762, 477);
             this.educationReview1.TabIndex = 14;
             this.educationReview1.Visible = false;
+            this.educationReview1.btnSearchClick += new System.EventHandler(this.educationReview1_btnSearchClick);
             // 
             // workerReview1
             // 

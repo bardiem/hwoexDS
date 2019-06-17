@@ -721,6 +721,24 @@ namespace hwoexClient.Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateExperiance", ReplyAction="http://tempuri.org/IService1/UpdateExperianceResponse")]
         System.Threading.Tasks.Task UpdateExperianceAsync(int id, string name, int size, string ceo, string type, string position, int salary, string startDate, string finishDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectFromWorkers", ReplyAction="http://tempuri.org/IService1/SelectFromWorkersResponse")]
+        hwoexClient.Service.Worker[] SelectFromWorkers(string surname, string name, string city, string address, string martialStatus, string wantedSalary, string wantedPositon, string childrenCount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectFromWorkers", ReplyAction="http://tempuri.org/IService1/SelectFromWorkersResponse")]
+        System.Threading.Tasks.Task<hwoexClient.Service.Worker[]> SelectFromWorkersAsync(string surname, string name, string city, string address, string martialStatus, string wantedSalary, string wantedPositon, string childrenCount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectFromEducation", ReplyAction="http://tempuri.org/IService1/SelectFromEducationResponse")]
+        hwoexClient.Service.Education[] SelectFromEducation(string name, string type, string owner, string faculty);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectFromEducation", ReplyAction="http://tempuri.org/IService1/SelectFromEducationResponse")]
+        System.Threading.Tasks.Task<hwoexClient.Service.Education[]> SelectFromEducationAsync(string name, string type, string owner, string faculty);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectFromExperiance", ReplyAction="http://tempuri.org/IService1/SelectFromExperianceResponse")]
+        hwoexClient.Service.Experiance[] SelectFromExperiance(string name, string size, string ceo, string type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectFromExperiance", ReplyAction="http://tempuri.org/IService1/SelectFromExperianceResponse")]
+        System.Threading.Tasks.Task<hwoexClient.Service.Experiance[]> SelectFromExperianceAsync(string name, string size, string ceo, string type);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -868,6 +886,30 @@ namespace hwoexClient.Service {
         
         public System.Threading.Tasks.Task UpdateExperianceAsync(int id, string name, int size, string ceo, string type, string position, int salary, string startDate, string finishDate) {
             return base.Channel.UpdateExperianceAsync(id, name, size, ceo, type, position, salary, startDate, finishDate);
+        }
+        
+        public hwoexClient.Service.Worker[] SelectFromWorkers(string surname, string name, string city, string address, string martialStatus, string wantedSalary, string wantedPositon, string childrenCount) {
+            return base.Channel.SelectFromWorkers(surname, name, city, address, martialStatus, wantedSalary, wantedPositon, childrenCount);
+        }
+        
+        public System.Threading.Tasks.Task<hwoexClient.Service.Worker[]> SelectFromWorkersAsync(string surname, string name, string city, string address, string martialStatus, string wantedSalary, string wantedPositon, string childrenCount) {
+            return base.Channel.SelectFromWorkersAsync(surname, name, city, address, martialStatus, wantedSalary, wantedPositon, childrenCount);
+        }
+        
+        public hwoexClient.Service.Education[] SelectFromEducation(string name, string type, string owner, string faculty) {
+            return base.Channel.SelectFromEducation(name, type, owner, faculty);
+        }
+        
+        public System.Threading.Tasks.Task<hwoexClient.Service.Education[]> SelectFromEducationAsync(string name, string type, string owner, string faculty) {
+            return base.Channel.SelectFromEducationAsync(name, type, owner, faculty);
+        }
+        
+        public hwoexClient.Service.Experiance[] SelectFromExperiance(string name, string size, string ceo, string type) {
+            return base.Channel.SelectFromExperiance(name, size, ceo, type);
+        }
+        
+        public System.Threading.Tasks.Task<hwoexClient.Service.Experiance[]> SelectFromExperianceAsync(string name, string size, string ceo, string type) {
+            return base.Channel.SelectFromExperianceAsync(name, size, ceo, type);
         }
     }
 }

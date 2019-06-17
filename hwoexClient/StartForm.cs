@@ -199,26 +199,24 @@ namespace hwoexClient
             }
         }
 
-        private void companiesReview1_Load(object sender, EventArgs e)
-        {
 
+        private void companiesReview1_btnSearchClick(object sender, EventArgs e)
+        {
+            companiesReview1.DataView.DataSource = db.FillExperiance(service.SelectFromExperiance(companiesReview1.TextBox1.Text, companiesReview1.TextBox2.Text,
+    companiesReview1.TextBox3.Text, companiesReview1.TextBox4.Text));
+        }
+
+
+        private void educationReview1_btnSearchClick(object sender, EventArgs e)
+        {
+            educationReview1.DataView.DataSource = db.FillEducation(service.SelectFromEducation(educationReview1.TextBox1.Text, educationReview1.TextBox2.Text,
+                educationReview1.TextBox3.Text, educationReview1.TextBox4.Text));
         }
 
         private void workerReview1_btnSearchClick(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog = hwoex; Integrated Security = True");
-            SqlCommand com = new SqlCommand("SELECT * FROM Worker WHERE id = " + int.Parse(workerReview1.TextBox1.Text), con);
-
-            con.Open();
-
-            SqlDataReader dr = com.ExecuteReader();
-
-            
-               
-            workerReview1.DataView.DataSource = dr;
-            dr.Close();
-            con.Close();
-
+            workerReview1.DataView.DataSource = db.FillWorkers(service.SelectFromWorkers(workerReview1.TextBox1.Text, workerReview1.TextBox2.Text,
+                workerReview1.TextBox3.Text, workerReview1.TextBox4.Text, workerReview1.TextBox5.Text, workerReview1.TextBox6.Text, workerReview1.TextBox7.Text, workerReview1.TextBox8.Text));
         }
 
         private void button3P_Click(object sender, EventArgs e)
@@ -405,5 +403,7 @@ namespace hwoexClient
                 workerChanging1.ClearTextBoxes();
             }
         }
+
+
     }
 }

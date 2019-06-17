@@ -64,7 +64,8 @@ namespace Server
 
 
         [OperationContract]
-        List<Worker> SelectFromWorkers(string surname, string name, string city, string address, string martialStatus, string salary, string childrenCount);
+        List<Worker> SelectFromWorkers(string surname, string name, string city, string address, string martialStatus, 
+            string wantedSalary, string wantedPositon, string childrenCount);
 
         [OperationContract]
         List<Education> SelectFromEducation(string name, string type, string owner, string faculty);
