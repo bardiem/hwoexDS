@@ -50,6 +50,14 @@ namespace hwoexClient
             }
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (this.tbTextChanged != null)
+            {
+                this.tbTextChanged(this, e);
+            }
+        }
+
         public event EventHandler btnChangingClick;
         public event EventHandler btnDeleteClick;
         public event EventHandler tbTextChanged;
@@ -182,14 +190,6 @@ namespace hwoexClient
                 textBox1 = value;
             }
         }
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (this.tbTextChanged != null)
-            {
-                this.tbTextChanged(this, e);
-            }
-        }
+    
     }
 }

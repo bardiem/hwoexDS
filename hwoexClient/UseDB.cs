@@ -32,10 +32,9 @@ namespace hwoexClient
             return password;
         }
 
-        public DataTable FillWorkers()
+        public DataTable FillWorkers(Worker[] workers)
         {
             DataTable table = new DataTable();
-            Worker[] workers = service.GetWorkers();
             int cols = 13;
             for (int i = 0; i < cols; i++)
             {
@@ -81,10 +80,9 @@ namespace hwoexClient
 
 
 
-        public DataTable FillEducation()
+        public DataTable FillEducation(Education[] educations)
         {
             DataTable table = new DataTable();
-            Education[] educations = service.GetEducations();
             int cols = 10;
             for (int i = 0; i < cols; i++)
             {
@@ -127,10 +125,9 @@ namespace hwoexClient
 
 
 
-        public DataTable FillExperiance()
+        public DataTable FillExperiance(Experiance[] experiances)
         {
             DataTable table = new DataTable();
-            Experiance[] experiances = service.GetExperiances();
             int cols = 10;
             for (int i = 0; i < cols; i++)
             {
@@ -167,19 +164,6 @@ namespace hwoexClient
             }
             return table;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

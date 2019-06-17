@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using hwoexClient.Service;
-
+using System.Data.SqlClient;
 
 namespace hwoexClient
 {
@@ -26,9 +26,9 @@ namespace hwoexClient
 
         private void StartForm_Load(object sender, EventArgs e)
         {
-            workerReview1.DataView.DataSource = db.FillWorkers();
-            companiesReview1.DataView.DataSource = db.FillExperiance();
-            educationReview1.DataView.DataSource = db.FillEducation();
+            workerReview1.DataView.DataSource = db.FillWorkers(service.GetWorkers());
+            companiesReview1.DataView.DataSource = db.FillExperiance(service.GetExperiances());
+            educationReview1.DataView.DataSource = db.FillEducation(service.GetEducations());
         }
 
 
@@ -204,7 +204,19 @@ namespace hwoexClient
 
         private void workerReview1_btnSearchClick(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog = hwoex; Integrated Security = True");
+            SqlCommand com = new SqlCommand("SELECT * FROM Worker WHERE id = " + int.Parse(workerReview1.TextBox1.Text), con);
+
+            con.Open();
+
+            SqlDataReader dr = com.ExecuteReader();
+
             
+               
+            workerReview1.DataView.DataSource = dr;
+            dr.Close();
+            con.Close();
+
         }
 
         private void button3P_Click(object sender, EventArgs e)
@@ -247,6 +259,15 @@ namespace hwoexClient
         private void addUser1_btnAddWorkerClick(object sender, EventArgs e)
         {
          
+            if (addUser1.TextBox10W.Text == "Необов'язкво")
+            {
+                addUser1.TextBox10W.Text = "";
+            }
+            if (addUser1.TextBox11W.Text == "Необов'язкво")
+                addUser1.TextBox11W.Text = "";
+
+            if (addUser1.TextBox12W.Text == "Необов'язкво")
+                addUser1.TextBox12W.Text = "";
             service.InsertWorker(addUser1.TextBox1W.Text, addUser1.TextBox2W.Text, addUser1.TextBox3W.Text, addUser1.TextBox4W.Text,
                 addUser1.TextBox5W.Text, addUser1.TextBox6W.Text, addUser1.TextBox7W.Text, addUser1.TextBox8W.Text,
                 addUser1.TextBox9W.Text, addUser1.TextBox10W.Text, addUser1.TextBox11W.Text, addUser1.TextBox12W.Text);
@@ -302,17 +323,36 @@ namespace hwoexClient
 
         private void companiesChanging1_tbTextChanged(object sender, EventArgs e)
         {
-
+            int i = 0;
+            try
+            {
+                i = int.Parse(companiesChanging1.TextBoxID.Text);
+                companiesChanging1.DataView.DataSource = db.FillExperiance(service.GetExperiance(i));
+            }
+            catch (Exception) { }
+            
         }
 
         private void educationChanging1_tbTextChanged(object sender, EventArgs e)
         {
-
+            int i = 0;
+            try
+            {
+                i = int.Parse(companiesChanging1.TextBoxID.Text);
+                educationChanging1.DataView.DataSource = db.FillEducation(service.GetEducation(i));
+            }
+            catch (Exception) { }
         }
 
         private void workerChanging1_tbTextChanged(object sender, EventArgs e)
         {
-
+            int i = 0;
+            try
+            {
+                i = int.Parse(companiesChanging1.TextBoxID.Text);
+                workerChanging1.DataView.DataSource = db.FillWorkers(service.GetWorker(i));
+            }
+            catch (Exception) { }
         }
     }
 }

@@ -16,7 +16,45 @@ namespace hwoexClient
         {
             InitializeComponent();
         }
-
+        public void ClearTextBoxes(int i)
+        {
+            if (i == 1)
+            {
+                textBox1W.Text = "";
+                textBox2W.Text = "";
+                textBox3W.Text = "";
+                textBox4W.Text = "";
+                textBox5W.Text = "";
+                textBox6W.Text = "";
+                textBox7W.Text = "";
+                textBox8W.Text = "";
+                textBox9W.Text = "";
+                textBox10W.Text = "";
+                textBox11W.Text = "";
+                textBox12W.Text = "";
+            } else if (i == 2)
+            {
+                textBox1E.Text = "";
+                textBox2E.Text = "";
+                textBox3E.Text = "";
+                textBox4E.Text = "";
+                textBox5E.Text = "";
+                textBox6E.Text = "";
+                textBox7E.Text = "";
+                textBox8E.Text = "";
+            }
+            else if (i == 3)
+            {
+                textBox1C.Text = "";
+                textBox2C.Text = "";
+                textBox3C.Text = "";
+                textBox4C.Text = "";
+                textBox5C.Text = "";
+                textBox6C.Text = "";
+                textBox7C.Text = "";
+                textBox8C.Text = "";
+            }
+        }
 
         private void textBox10_Click(object sender, EventArgs e)
         {
@@ -58,18 +96,7 @@ namespace hwoexClient
             {
                 label1.Text = "Дані про освіту";
                 panel1.Show();
-                textBox1W.Text = "";
-                textBox2W.Text = "";
-                textBox3W.Text = "";
-                textBox4W.Text = "";
-                textBox5W.Text = "";
-                textBox6W.Text = "";
-                textBox7W.Text = "";
-                textBox8W.Text = "";
-                textBox9W.Text = "";
-                textBox10W.Text = "";
-                textBox11W.Text = "";
-                textBox12W.Text = "";
+                
             }
 
 
@@ -97,14 +124,7 @@ namespace hwoexClient
                 label1.Text = "Дані про роботу";
                 panel1.Hide();
                 panel2.Show();
-                textBox1E.Text = "";
-                textBox2E.Text = "";
-                textBox3E.Text = "";
-                textBox4E.Text = "";
-                textBox5E.Text = "";
-                textBox6E.Text = "";
-                textBox7E.Text = "";
-                textBox8E.Text = "";
+                
 
             }
 
@@ -135,17 +155,6 @@ namespace hwoexClient
                  "Повідомлення",
                  MessageBoxButtons.OK,
                  MessageBoxIcon.Stop);
-            }
-            else
-            {
-                textBox1C.Text = "";
-                textBox2C.Text = "";
-                textBox3C.Text = "";
-                textBox4C.Text = "";
-                textBox5C.Text = "";
-                textBox6C.Text = "";
-                textBox7C.Text = "";
-                textBox8C.Text = "";
             }
 
         }

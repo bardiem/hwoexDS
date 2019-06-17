@@ -21,8 +21,9 @@ namespace Server
         {
 
             SqlConnection con = new SqlConnection(conString);
-            SqlCommand com = new SqlCommand("Select TOP 1 id from" + tableName + " order by id desc;", con);
+            SqlCommand com = new SqlCommand("Select TOP 1 id from @table order by id desc;", con);
             con.Open();
+            com.Parameters.AddWithValue("table", tableName);
             SqlDataReader dr = com.ExecuteReader();
             int count = int.Parse(dr.Read().ToString());
             dr.Close();
@@ -44,6 +45,7 @@ namespace Server
             SqlConnection con = new SqlConnection(conString);
             SqlCommand com = new SqlCommand("SELECT count(*) FROM " + tableName, con);
             con.Open();
+
             SqlDataReader dr = com.ExecuteReader();
             int count = int.Parse(dr.Read().ToString());
             dr.Close();
@@ -167,10 +169,44 @@ namespace Server
             SqlConnection con = new SqlConnection(conString);
 
             string queryText = "INSERT INTO Worker (surname, name, secondName, city, address, sex, maritalStatus, birthDate, wantedSalary," +
-             "wantedPosition, cardNumber, childrenCount) VALUES ('" + surname + "','" + name + "','" + secondName + "','" + city + "','" + address + "','" +
-             sex + "','" + maritalStatus + "','" + birthDate + "','" + wantedSalary + "','" + wantedPosition + "','" + cardNumber + "','" + childrenCount + "');";
-
+             "wantedPosition, cardNumber, childrenCount) VALUES (@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, " +
+             "@param9, @param10, @param11, @param12);";
+            
+            
             SqlCommand com = new SqlCommand(queryText, con);
+
+            /*char[] cBDate = birthDate.ToCharArray();
+            string[] bDate = new string[2];
+            for (int i = 0; i < 3; i++)
+            {
+                bDate[0] += cBDate[i];
+            }
+
+            for (int i = 4; i < 6; i++)
+            {
+                bDate[1] += cBDate[i];
+            }
+
+            for (int i = 7; i < 9; i++)
+            {
+                bDate[1] += cBDate[i];
+            }*/
+
+            com.Parameters.AddWithValue("param1", surname);
+            com.Parameters.AddWithValue("param2", name);
+            com.Parameters.AddWithValue("param3", secondName);
+            com.Parameters.AddWithValue("param4", city);
+            com.Parameters.AddWithValue("param5", address);
+            com.Parameters.AddWithValue("param6", sex);
+            com.Parameters.AddWithValue("param7", maritalStatus);
+            //com.Parameters.AddWithValue("param8", new DateTime(int.Parse(bDate[0]), int.Parse(bDate[1]), int.Parse(bDate[2])));
+            com.Parameters.AddWithValue("param8", birthDate);
+            com.Parameters.AddWithValue("param9", int.Parse(wantedSalary));
+            com.Parameters.AddWithValue("param10", wantedPosition);
+            com.Parameters.AddWithValue("param11", cardNumber);
+            com.Parameters.AddWithValue("param12", int.Parse(childrenCount));
+
+
 
             con.Open();
 
@@ -188,8 +224,8 @@ namespace Server
             SqlConnection con = new SqlConnection(conString);
             int workerId = GetLastId("Worker");
 
-            string queryText = "INSERT INTO Education (name, type, owner, location, workerId, startDate, finishDate, faculty, isFinished) VALUES ('" +
-                name + "','" + type + "','" + owner + "','" + location + "','" + workerId + "','" + startDate + "','" + finishDate + "','" + faculty + "','" + isFinished + "');";
+            string queryText = "INSERT INTO Education (name, type, owner, location, workerId, startDate, finishDate, faculty, isFinished) VALUES (@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, " +
+             "@param9, @param10, @param11, @param12);";
 
             SqlCommand com = new SqlCommand(queryText, con);
             con.Open();
