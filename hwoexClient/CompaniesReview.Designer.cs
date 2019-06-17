@@ -31,22 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompaniesReview));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox5C = new System.Windows.Forms.TextBox();
-            this.textBox6C = new System.Windows.Forms.TextBox();
-            this.textBox7C = new System.Windows.Forms.TextBox();
             this.textBox1C = new System.Windows.Forms.TextBox();
             this.textBox2C = new System.Windows.Forms.TextBox();
             this.textBox3C = new System.Windows.Forms.TextBox();
             this.textBox4C = new System.Windows.Forms.TextBox();
-            this.textBox8C = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,27 +67,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox5C
-            // 
-            this.textBox5C.Location = new System.Drawing.Point(568, 33);
-            this.textBox5C.Name = "textBox5C";
-            this.textBox5C.Size = new System.Drawing.Size(130, 20);
-            this.textBox5C.TabIndex = 141;
-            // 
-            // textBox6C
-            // 
-            this.textBox6C.Location = new System.Drawing.Point(568, 86);
-            this.textBox6C.Name = "textBox6C";
-            this.textBox6C.Size = new System.Drawing.Size(130, 20);
-            this.textBox6C.TabIndex = 140;
-            // 
-            // textBox7C
-            // 
-            this.textBox7C.Location = new System.Drawing.Point(568, 133);
-            this.textBox7C.Name = "textBox7C";
-            this.textBox7C.Size = new System.Drawing.Size(130, 20);
-            this.textBox7C.TabIndex = 139;
-            // 
             // textBox1C
             // 
             this.textBox1C.Location = new System.Drawing.Point(146, 33);
@@ -106,7 +77,7 @@
             // textBox2C
             // 
             this.textBox2C.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBox2C.Location = new System.Drawing.Point(146, 83);
+            this.textBox2C.Location = new System.Drawing.Point(146, 141);
             this.textBox2C.Name = "textBox2C";
             this.textBox2C.Size = new System.Drawing.Size(143, 20);
             this.textBox2C.TabIndex = 137;
@@ -114,7 +85,7 @@
             // textBox3C
             // 
             this.textBox3C.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBox3C.Location = new System.Drawing.Point(146, 136);
+            this.textBox3C.Location = new System.Drawing.Point(512, 27);
             this.textBox3C.Name = "textBox3C";
             this.textBox3C.Size = new System.Drawing.Size(143, 20);
             this.textBox3C.TabIndex = 136;
@@ -122,76 +93,24 @@
             // textBox4C
             // 
             this.textBox4C.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBox4C.Location = new System.Drawing.Point(146, 188);
+            this.textBox4C.Location = new System.Drawing.Point(512, 141);
             this.textBox4C.Name = "textBox4C";
             this.textBox4C.Size = new System.Drawing.Size(143, 20);
             this.textBox4C.TabIndex = 135;
             // 
-            // textBox8C
-            // 
-            this.textBox8C.Location = new System.Drawing.Point(568, 188);
-            this.textBox8C.Name = "textBox8C";
-            this.textBox8C.Size = new System.Drawing.Size(130, 20);
-            this.textBox8C.TabIndex = 134;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(400, 191);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(103, 13);
-            this.label22.TabIndex = 133;
-            this.label22.Text = "Дата кінця роботи:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(400, 136);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(116, 13);
-            this.label23.TabIndex = 132;
-            this.label23.Text = "Дата початку роботи:";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(400, 89);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(58, 13);
-            this.label24.TabIndex = 131;
-            this.label24.Text = "Зарплата:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(400, 36);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(48, 13);
-            this.label25.TabIndex = 130;
-            this.label25.Text = "Посада:";
-            // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(33, 191);
+            this.label26.Location = new System.Drawing.Point(399, 144);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(29, 13);
             this.label26.TabIndex = 129;
             this.label26.Text = "Тип:";
             // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(33, 136);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(60, 13);
-            this.label27.TabIndex = 128;
-            this.label27.Text = "Директор:";
-            // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(33, 86);
+            this.label28.Location = new System.Drawing.Point(33, 144);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(45, 13);
             this.label28.TabIndex = 127;
@@ -206,22 +125,23 @@
             this.label29.TabIndex = 126;
             this.label29.Text = "Назва компанії:";
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(399, 27);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(60, 13);
+            this.label27.TabIndex = 128;
+            this.label27.Text = "Директор:";
+            // 
             // CompaniesReview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox5C);
-            this.Controls.Add(this.textBox6C);
-            this.Controls.Add(this.textBox7C);
             this.Controls.Add(this.textBox1C);
             this.Controls.Add(this.textBox2C);
             this.Controls.Add(this.textBox3C);
             this.Controls.Add(this.textBox4C);
-            this.Controls.Add(this.textBox8C);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.label25);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.label28);
@@ -241,21 +161,13 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox5C;
-        private System.Windows.Forms.TextBox textBox6C;
-        private System.Windows.Forms.TextBox textBox7C;
         private System.Windows.Forms.TextBox textBox1C;
         private System.Windows.Forms.TextBox textBox2C;
         private System.Windows.Forms.TextBox textBox3C;
         private System.Windows.Forms.TextBox textBox4C;
-        private System.Windows.Forms.TextBox textBox8C;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label27;
     }
 }

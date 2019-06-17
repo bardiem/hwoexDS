@@ -64,13 +64,13 @@ namespace Server
 
 
         [OperationContract]
-        List<Worker> SelectFromWorkers();
+        List<Worker> SelectFromWorkers(string surname, string name, string city, string address, string martialStatus, string salary, string childrenCount);
 
         [OperationContract]
-        List<Education> SelectFromEducation();
+        List<Education> SelectFromEducation(string name, string type, string owner, string faculty);
 
         [OperationContract]
-        List<Experiance> SelectFromExperiance();
+        List<Experiance> SelectFromExperiance(string name, string size, string ceo, string type);
 
 
     }

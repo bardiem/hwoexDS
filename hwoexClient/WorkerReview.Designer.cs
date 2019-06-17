@@ -31,15 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkerReview));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button9 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox7C = new System.Windows.Forms.TextBox();
             this.textBox1C = new System.Windows.Forms.TextBox();
             this.textBox2C = new System.Windows.Forms.TextBox();
             this.textBox3C = new System.Windows.Forms.TextBox();
             this.textBox4C = new System.Windows.Forms.TextBox();
-            this.textBox8C = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -47,6 +44,9 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox8C = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,13 +74,6 @@
             this.button9.TabIndex = 123;
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(568, 178);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(130, 20);
-            this.textBox2.TabIndex = 119;
             // 
             // label4
             // 
@@ -128,22 +121,6 @@
             this.textBox4C.Name = "textBox4C";
             this.textBox4C.Size = new System.Drawing.Size(143, 20);
             this.textBox4C.TabIndex = 107;
-            // 
-            // textBox8C
-            // 
-            this.textBox8C.Location = new System.Drawing.Point(568, 78);
-            this.textBox8C.Name = "textBox8C";
-            this.textBox8C.Size = new System.Drawing.Size(130, 20);
-            this.textBox8C.TabIndex = 106;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(400, 81);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(101, 13);
-            this.label22.TabIndex = 105;
-            this.label22.Text = "Дата народження:";
             // 
             // label23
             // 
@@ -206,6 +183,29 @@
             this.textBox1.Size = new System.Drawing.Size(130, 20);
             this.textBox1.TabIndex = 118;
             // 
+            // textBox8C
+            // 
+            this.textBox8C.Location = new System.Drawing.Point(568, 78);
+            this.textBox8C.Name = "textBox8C";
+            this.textBox8C.Size = new System.Drawing.Size(130, 20);
+            this.textBox8C.TabIndex = 106;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(400, 81);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(99, 13);
+            this.label22.TabIndex = 105;
+            this.label22.Text = "Бажана зарплата:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(568, 178);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(130, 20);
+            this.textBox2.TabIndex = 119;
+            // 
             // WorkerReview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,15 +240,12 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox7C;
         private System.Windows.Forms.TextBox textBox1C;
         private System.Windows.Forms.TextBox textBox2C;
         private System.Windows.Forms.TextBox textBox3C;
         private System.Windows.Forms.TextBox textBox4C;
-        private System.Windows.Forms.TextBox textBox8C;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label28;
@@ -256,5 +253,8 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox8C;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

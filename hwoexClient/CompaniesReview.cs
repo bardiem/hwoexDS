@@ -95,56 +95,6 @@ namespace hwoexClient
             }
         }
 
-        public TextBox TextBox8
-        {
-            get
-            {
-                return textBox8C;
-            }
-
-            set
-            {
-                textBox8C = value;
-            }
-        }
-
-        public TextBox TextBox5
-        {
-            get
-            {
-                return textBox5C;
-            }
-
-            set
-            {
-                textBox5C = value;
-            }
-        }
-
-        public TextBox TextBox6
-        {
-            get
-            {
-                return textBox6C;
-            }
-            set
-            {
-                textBox6C = value;
-            }
-        }
-
-        public TextBox TextBox7
-        {
-            get
-            {
-                return textBox7C;
-            }
-
-            set
-            {
-                textBox7C = value;
-            }
-        }
 
     }
 }

@@ -62,8 +62,6 @@ namespace Server
                     }
                     break;
             }
-            
-            
             return max;
 
         }
@@ -89,7 +87,6 @@ namespace Server
             return count;
 
         }
-
 
 
 
@@ -513,6 +510,65 @@ namespace Server
             con.Open();
             int rows = com.ExecuteNonQuery();
             con.Close();
+        }
+
+        public List<Worker> SelectFromWorkers(string surname, string name, string city, string address, string martialStatus, string salary, string childrenCount)
+        {
+            List<Worker> l = new List<Worker>();
+            try
+            {
+                SqlConnection con = new SqlConnection(conString);
+                SqlCommand com;
+                com = con.CreateCommand();
+
+                if(surname != "")
+                {
+                    com.CommandText = "SELECT * FROM Workers WHERE surname = @surname";
+                    com.Parameters.AddWithValue("surname", surname);
+                }
+
+
+
+
+
+
+                con.Open();
+                SqlDataReader dr = com.ExecuteReader();
+                while (dr.Read())
+                {
+                    Worker w = new Worker();
+                    w.Id = dr[0].ToString();
+                    w.Surname = dr[1].ToString();
+                    w.Name = dr[2].ToString();
+                    w.SecondName = dr[3].ToString();
+                    w.City = dr[4].ToString();
+                    w.Address = dr[5].ToString();
+                    w.Sex = dr[6].ToString();
+                    w.MaritalStatus = dr[7].ToString();
+                    w.BirthDate = dr[8].ToString();
+                    w.WantedSalary = dr[9].ToString();
+                    w.WantedPosition = dr[10].ToString();
+                    w.CardNumber = dr[11].ToString();
+                    w.ChildrenCount = dr[12].ToString();
+                    l.Add(w);
+                }
+                dr.Close();
+                con.Close();
+            }
+            catch (Exception) { }
+
+            
+            return l;
+        }
+
+        public List<Education> SelectFromEducation(string name, string type, string owner, string faculty)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Experiance> SelectFromExperiance(string name, string size, string ceo, string type)
+        {
+            throw new NotImplementedException();
         }
     }
 }
