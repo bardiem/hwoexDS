@@ -24,6 +24,26 @@ namespace hwoexClient
             service = new Service1Client();
         }
 
+        public string FromDate(string date)
+        {
+            string temp = "";
+            try
+            {
+                char[] tempCh = new char[10];
+
+                tempCh = date.ToCharArray();
+                for (int i = 0; i < 10; i++)
+                {
+                    temp += tempCh[i];
+                }
+            }
+            catch (Exception)
+            {
+                return date;
+            }
+
+            return temp;
+            }
 
         public string GetPassword()
         {
@@ -66,7 +86,7 @@ namespace hwoexClient
                 str[i++] = key.Address;
                 str[i++] = key.Sex;
                 str[i++] = key.MaritalStatus;
-                str[i++] = key.BirthDate;
+                str[i++] = FromDate(key.BirthDate);
                 str[i++] = key.WantedSalary;
                 str[i++] = key.WantedPosition;
                 str[i++] = key.CardNumber;
@@ -108,8 +128,8 @@ namespace hwoexClient
                 str[i++] = key.Id;
                 str[i++] = key.Name;
                 str[i++] = key.WorkerId;
-                str[i++] = key.StartDate;
-                str[i++] = key.FinishDate;
+                str[i++] = FromDate(key.StartDate.ToString());
+                str[i++] = FromDate(key.FinishDate.ToString());
                 str[i++] = key.IsFinished;
                 str[i++] = key.Faculty;
                 str[i++] = key.Owner;
@@ -157,8 +177,8 @@ namespace hwoexClient
                 str[9] = key.WorkerId;
                 str[1] = key.Position;
                 str[2] = key.Salary;
-                str[3] = key.StartDate;
-                str[4] = key.FinishDate;
+                str[3] = FromDate(key.StartDate);
+                str[4] = FromDate(key.FinishDate);
                 table.Rows.Add(str);
             }
             return table;

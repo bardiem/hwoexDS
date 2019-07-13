@@ -40,9 +40,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button3P = new System.Windows.Forms.Button();
-            this.button2P = new System.Windows.Forms.Button();
-            this.button1P = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -192,9 +189,6 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel3.Controls.Add(this.button3P);
-            this.panel3.Controls.Add(this.button2P);
-            this.panel3.Controls.Add(this.button1P);
             this.panel3.Controls.Add(this.button8);
             this.panel3.Controls.Add(this.button6);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -203,45 +197,6 @@
             this.panel3.Size = new System.Drawing.Size(762, 27);
             this.panel3.TabIndex = 2;
             this.panel3.Visible = false;
-            // 
-            // button3P
-            // 
-            this.button3P.FlatAppearance.BorderSize = 0;
-            this.button3P.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3P.Image = ((System.Drawing.Image)(resources.GetObject("button3P.Image")));
-            this.button3P.Location = new System.Drawing.Point(645, 0);
-            this.button3P.Name = "button3P";
-            this.button3P.Size = new System.Drawing.Size(40, 27);
-            this.button3P.TabIndex = 4;
-            this.button3P.UseVisualStyleBackColor = true;
-            this.button3P.Visible = false;
-            this.button3P.Click += new System.EventHandler(this.button3P_Click);
-            // 
-            // button2P
-            // 
-            this.button2P.FlatAppearance.BorderSize = 0;
-            this.button2P.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2P.Image = ((System.Drawing.Image)(resources.GetObject("button2P.Image")));
-            this.button2P.Location = new System.Drawing.Point(645, 0);
-            this.button2P.Name = "button2P";
-            this.button2P.Size = new System.Drawing.Size(40, 27);
-            this.button2P.TabIndex = 3;
-            this.button2P.UseVisualStyleBackColor = true;
-            this.button2P.Visible = false;
-            this.button2P.Click += new System.EventHandler(this.button2P_Click);
-            // 
-            // button1P
-            // 
-            this.button1P.FlatAppearance.BorderSize = 0;
-            this.button1P.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1P.Image = ((System.Drawing.Image)(resources.GetObject("button1P.Image")));
-            this.button1P.Location = new System.Drawing.Point(645, 0);
-            this.button1P.Name = "button1P";
-            this.button1P.Size = new System.Drawing.Size(40, 27);
-            this.button1P.TabIndex = 2;
-            this.button1P.UseVisualStyleBackColor = true;
-            this.button1P.Visible = false;
-            this.button1P.Click += new System.EventHandler(this.button1P_Click);
             // 
             // button8
             // 
@@ -325,7 +280,6 @@
             this.companiesReview1.Size = new System.Drawing.Size(762, 477);
             this.companiesReview1.TabIndex = 17;
             this.companiesReview1.Visible = false;
-            this.companiesReview1.btnSearchClick += new System.EventHandler(this.companiesReview1_btnSearchClick);
             // 
             // companiesChanging1
             // 
@@ -456,8 +410,6 @@
         private System.Windows.Forms.Button button3T;
         private System.Windows.Forms.Button button2T;
         private System.Windows.Forms.Button button1T;
-        private System.Windows.Forms.Button button1P;
-        private System.Windows.Forms.Button button2P;
         private FAQ faq1;
         private WorkerChanging workerChanging1;
         private WorkerReview workerReview1;
@@ -465,7 +417,6 @@
         private EducationChanging educationChanging1;
         private CompaniesChanging companiesChanging1;
         private CompaniesReview companiesReview1;
-        private System.Windows.Forms.Button button3P;
     }
 }
 

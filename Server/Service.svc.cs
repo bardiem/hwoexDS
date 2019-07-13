@@ -19,16 +19,7 @@ namespace Server
 
         private int GetLastId(string tableName)
         {
-
-            /*SqlConnection con = new SqlConnection(conString);
-            SqlCommand com = new SqlCommand("Select TOP 1 id from @table order by id desc;", con);
-            con.Open();
-            com.Parameters.AddWithValue("table", tableName);
-            SqlDataReader dr = com.ExecuteReader();
-            int count = int.Parse(dr.Read().ToString());
-            dr.Close();
-            con.Close();*/
-            int max = 1, temp = 0;
+            int max = 1;
             switch (tableName)
             {
                 case "Worker":
@@ -37,7 +28,7 @@ namespace Server
                     {
                         if (max < int.Parse(key.Id))
                         {
-                            max = temp;
+                            max = int.Parse(key.Id);
                         }
                     }
                     break;
@@ -47,7 +38,7 @@ namespace Server
                     {
                         if (max < int.Parse(key.Id))
                         {
-                            max = temp;
+                            max = int.Parse(key.Id); ;
                         }
                     }
                     break;
@@ -57,7 +48,7 @@ namespace Server
                     {
                         if (max < int.Parse(key.Id))
                         {
-                            max = temp;
+                            max = int.Parse(key.Id); ;
                         }
                     }
                     break;
@@ -215,19 +206,25 @@ namespace Server
                 wantedPosition = "";
             if (cardNumber == "(Необов'язково)")
                 cardNumber = "";
+            try
+            {
+                com.Parameters.AddWithValue("param1", surname);
+                com.Parameters.AddWithValue("param2", name);
+                com.Parameters.AddWithValue("param3", secondName);
+                com.Parameters.AddWithValue("param4", city);
+                com.Parameters.AddWithValue("param5", address);
+                com.Parameters.AddWithValue("param6", sex);
+                com.Parameters.AddWithValue("param7", maritalStatus);
+                com.Parameters.AddWithValue("param8", birthDate);
+                com.Parameters.AddWithValue("param9", int.Parse(wantedSalary));
+                com.Parameters.AddWithValue("param10", wantedPosition);
+                com.Parameters.AddWithValue("param11", cardNumber);
+                com.Parameters.AddWithValue("param12", int.Parse(childrenCount));
+            }
+            catch (Exception)
+            {
 
-            com.Parameters.AddWithValue("param1", surname);
-            com.Parameters.AddWithValue("param2", name);
-            com.Parameters.AddWithValue("param3", secondName);
-            com.Parameters.AddWithValue("param4", city);
-            com.Parameters.AddWithValue("param5", address);
-            com.Parameters.AddWithValue("param6", sex);
-            com.Parameters.AddWithValue("param7", maritalStatus);
-            com.Parameters.AddWithValue("param8", birthDate);
-            com.Parameters.AddWithValue("param9", int.Parse(wantedSalary));
-            com.Parameters.AddWithValue("param10", wantedPosition);
-            com.Parameters.AddWithValue("param11", cardNumber);
-            com.Parameters.AddWithValue("param12", int.Parse(childrenCount));
+            }
 
 
 
@@ -252,30 +249,40 @@ namespace Server
         {
             SqlConnection con = new SqlConnection(conString);
             int workerId = GetLastId("Worker");
+            bool f = false;
 
             string queryText = "INSERT INTO Education (name, type, owner, location, workerId, startDate, finishDate, faculty, isFinished) VALUES " +
                 "(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9);";
             SqlCommand com = new SqlCommand(queryText, con);
             if(isFinished == "Так")
             {
-                isFinished = "1";
+                f = true;
             }
-            else
-            {
-                isFinished = "0";
-            }
+            try { 
             com.Parameters.AddWithValue("param1", name);
-            com.Parameters.AddWithValue("param2",type);
+            com.Parameters.AddWithValue("param2", type);
             com.Parameters.AddWithValue("param3", owner);
             com.Parameters.AddWithValue("param4", location);
             com.Parameters.AddWithValue("param5", workerId);
             com.Parameters.AddWithValue("param6", startDate);
             com.Parameters.AddWithValue("param7", finishDate);
             com.Parameters.AddWithValue("param8", faculty);
-            com.Parameters.AddWithValue("param9", isFinished);
+            com.Parameters.AddWithValue("param9", f);
+            }
+            catch (Exception)
+            {
 
+            }
             con.Open();
-            int rows = com.ExecuteNonQuery();
+            try
+            {
+                int rows = com.ExecuteNonQuery();
+            }
+            catch(Exception)
+            {
+
+            }
+
             con.Close();
         }
 
@@ -283,24 +290,32 @@ namespace Server
         public void InsertExperience(string name, string size, string ceo, string type, string position,
             string salary, string startDate, string finishDate)
         {
-            SqlConnection con = new SqlConnection(conString);
-            int workerId = GetLastId("Worker");
+            try { 
+                SqlConnection con = new SqlConnection(conString);
+                int workerId = GetLastId("Worker");
 
-            string queryText = "INSERT INTO Experiance (name, size, CEO, type, workerId, position, salary, startDate, finishDate) VALUES " +
-                "(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9);";
-            SqlCommand com = new SqlCommand(queryText, con);
-            com.Parameters.AddWithValue("param1", name);
-            com.Parameters.AddWithValue("param2", size);
-            com.Parameters.AddWithValue("param3", ceo);
-            com.Parameters.AddWithValue("param4", type);
-            com.Parameters.AddWithValue("param5", workerId);
-            com.Parameters.AddWithValue("param6", position);
-            com.Parameters.AddWithValue("param7", int.Parse(salary));
-            com.Parameters.AddWithValue("param8", startDate);
-            com.Parameters.AddWithValue("param9", finishDate);
-            con.Open();
-            int rows = com.ExecuteNonQuery();
-            con.Close();
+                string queryText = "INSERT INTO Experiance (name, size, CEO, type, workerId, position, salary, startDate, finishDate) VALUES " +
+                    "(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9);";
+
+                SqlCommand com = new SqlCommand(queryText, con);
+              
+                com.Parameters.AddWithValue("param1", name);
+                com.Parameters.AddWithValue("param2", size);
+                com.Parameters.AddWithValue("param3", ceo);
+                com.Parameters.AddWithValue("param4", type);
+                com.Parameters.AddWithValue("param5", workerId);
+                com.Parameters.AddWithValue("param6", position);
+                com.Parameters.AddWithValue("param7", int.Parse(salary));
+                com.Parameters.AddWithValue("param8", startDate);
+                com.Parameters.AddWithValue("param9", finishDate);
+                con.Open();
+                int rows = com.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
 
@@ -512,7 +527,7 @@ namespace Server
             con.Close();
         }
 
-        public List<Worker> SelectFromWorkers(string surname, string name, string city, string address, string martialStatus,
+        public List<Worker> SelectFromWorkers(string surname, string name, string city, string address, string maritalStatus,
             string wantedSalary, string wantedPosition, string childrenCount)
         {
             List<Worker> l = new List<Worker>();
@@ -521,61 +536,55 @@ namespace Server
             {
                 SqlConnection con = new SqlConnection(conString);
                 SqlCommand com = new SqlCommand("SELECT * FROM Worker", con);
-                if (surname != "") {
-                    com = new SqlCommand("SELECT * FROM Worker WHERE surname = @surname", con);
-                    com.Parameters.AddWithValue("surname", surname);
-                }
-                if (surname != "" && name != "")
+                if (city != "" && maritalStatus != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Worker WHERE city = @city AND maritalStatus = @maritalStatus", con);
+                    com.Parameters.AddWithValue("city", city);
+                    com.Parameters.AddWithValue("maritalStatus", maritalStatus);
+                }else if (wantedSalary != "" && wantedPosition != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Worker WHERE wantedSalary < @wantedSalary AND wantedPosition = @wantedPosition", con);
+                    com.Parameters.AddWithValue("wantedSalary", int.Parse(wantedSalary));
+                    com.Parameters.AddWithValue("wantedPosition", wantedPosition);
+                } else if (surname != "" && name != "")
                 {
                     com = new SqlCommand("SELECT * FROM Worker WHERE surname = @surname AND name = @name", con);
                     com.Parameters.AddWithValue("surname", surname);
                     com.Parameters.AddWithValue("name", name);
                 }
-                if (city != "")
+                else if (surname != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Worker WHERE surname = @surname", con);
+                    com.Parameters.AddWithValue("surname", surname);
+                }
+                else if (city != "")
                 {
                     com = new SqlCommand("SELECT * FROM Worker WHERE city = @city", con);
-                    com.Parameters.AddWithValue("city", surname);
-                }
-                if (address != "")
+                    com.Parameters.AddWithValue("city", city);
+                } else if (address != "")
                 {
                     com = new SqlCommand("SELECT * FROM Worker WHERE address = @address", con);
                     com.Parameters.AddWithValue("address", address);
-                }
-                if(martialStatus != "")
+                } else if(maritalStatus != "")
                 {
-                    com = new SqlCommand("SELECT * FROM Worker WHERE martialStatus = @martialStatus", con);
-                    com.Parameters.AddWithValue("martialStatus", martialStatus);
-                }
-                if(wantedSalary != "")
+                    com = new SqlCommand("SELECT * FROM Worker WHERE maritalStatus = @maritalStatus", con);
+                    com.Parameters.AddWithValue("maritalStatus", maritalStatus);
+                } else if(wantedSalary != "")
                 {
                     com = new SqlCommand("SELECT * FROM Worker WHERE wantedSalary < @wantedSalary", con);
-                    com.Parameters.AddWithValue("wantedSalary", wantedSalary);
-                }
-                if(wantedPosition != "")
+                    com.Parameters.AddWithValue("wantedSalary", int.Parse(wantedSalary));
+                } else if(wantedPosition != "")
                 {
-                    com = new SqlCommand("SELECT * FROM Worker WHERE wantedPositon =  @wantedPosition", con);
+                    com = new SqlCommand("SELECT * FROM Worker WHERE wantedPosition =  @wantedPosition", con);
                     com.Parameters.AddWithValue("wantedPosition", wantedPosition);
-                }
-                if(childrenCount != "")
+                } else if(childrenCount != "")
                 {
                     com = new SqlCommand("SELECT * FROM Worker WHERE childrenCount <  @childrenCount", con);
-                    com.Parameters.AddWithValue("childrenCount", childrenCount);
+                    com.Parameters.AddWithValue("childrenCount", int.Parse(childrenCount));
                 }
 
-                if (city != ""  && martialStatus != "")
-                {
-                    com = new SqlCommand("SELECT * FROM Worker WHERE city = @city AND martialStatus = @martialStatus", con);
-                    com.Parameters.AddWithValue("city", city);
-                    com.Parameters.AddWithValue("martialStatus", martialStatus);
-                }
-                if (wantedSalary != "" && wantedPosition != "")
-                {
-                    com = new SqlCommand("SELECT * FROM Worker WHERE wantedSalary < @wantedSalary AND wantedPosition = @wantedPosition", con);
-                    com.Parameters.AddWithValue("wantedSalary", wantedSalary);
-                    com.Parameters.AddWithValue("wantedPosition", wantedPosition);
-                }
+
                 con.Open();
-
                 SqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {
@@ -611,38 +620,40 @@ namespace Server
             {
                 SqlConnection con = new SqlConnection(conString);
                 SqlCommand com = new SqlCommand("SELECT * FROM Education", con);
-                if (name != "")
-                {
-                    com = new SqlCommand("SELECT * FROM Education WHERE name = @name", con);
-                    com.Parameters.AddWithValue("name", name);
-                }
-                if (type != "")
-                {
-                    com = new SqlCommand("SELECT * FROM Education WHERE type = @type", con);
-                    com.Parameters.AddWithValue("type", type);
-                }
-                if (owner != "")
-                {
-                    com = new SqlCommand("SELECT * FROM Education WHERE owner = @owner", con);
-                    com.Parameters.AddWithValue("owner", owner);
-                }
-                if (faculty!= "")
-                {
-                    com = new SqlCommand("SELECT * FROM Education WHERE faculty = @faculty", con);
-                    com.Parameters.AddWithValue("faculty", faculty);
-                }
-                if(type != "" && faculty != "")
+                if (type != "" && faculty != "")
                 {
                     com = new SqlCommand("SELECT * FROM Education WHERE type = @type AND faculty = @faculty", con);
                     com.Parameters.AddWithValue("type", type);
                     com.Parameters.AddWithValue("faculty", faculty);
-                }
-                if (type!="" && owner != "")
+                } else
+                if (type != "" && owner != "")
                 {
                     com = new SqlCommand("SELECT * FROM Education WHERE type = @type AND owner = @owner", con);
                     com.Parameters.AddWithValue("type", type);
                     com.Parameters.AddWithValue("owner", owner);
                 }
+                else if (faculty != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Education WHERE faculty = @faculty", con);
+                    com.Parameters.AddWithValue("faculty", faculty);
+                } else
+                if (type != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Education WHERE type = @type", con);
+                    com.Parameters.AddWithValue("type", type);
+                }
+                else if (owner != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Education WHERE owner = @owner", con);
+                    com.Parameters.AddWithValue("owner", owner);
+                }
+                else
+                if (name != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Education WHERE name = @name", con);
+                    com.Parameters.AddWithValue("name", name);
+                }
+                
                 con.Open();
 
                 SqlDataReader dr = com.ExecuteReader();
@@ -676,28 +687,28 @@ namespace Server
             {
                 SqlConnection con = new SqlConnection(conString);
                 SqlCommand com = new SqlCommand("SELECT * FROM Experiance", con);
-                if (name != "")
+                if (type != "")
                 {
-                    com = new SqlCommand("SELECT * FROM Experiance WHERE name = @name", con);
-                    com.Parameters.AddWithValue("name", name);
+                    com = new SqlCommand("SELECT * FROM Experiance WHERE type = @type", con);
+                    com.Parameters.AddWithValue("type", type);
                 }
-
-                if (size != "")
-                {
-                    com = new SqlCommand("SELECT * FROM Experiance WHERE size > @size", con);
-                    com.Parameters.AddWithValue("size", size);
-                }
-
+                else
                 if (ceo != "")
                 {
                     com = new SqlCommand("SELECT * FROM Experiance WHERE ceo = @ceo", con);
                     com.Parameters.AddWithValue("ceo", ceo);
                 }
-
-                if (type != "")
+                else
+                if (size != "")
                 {
-                    com = new SqlCommand("SELECT * FROM Experiance WHERE type = @type", con);
-                    com.Parameters.AddWithValue("type", type);
+                    com = new SqlCommand("SELECT * FROM Experiance WHERE size > @size", con);
+                    com.Parameters.AddWithValue("size", size);
+                }
+                else
+                if (name != "")
+                {
+                    com = new SqlCommand("SELECT * FROM Experiance WHERE name = @name", con);
+                    com.Parameters.AddWithValue("name", name);
                 }
 
                 con.Open();

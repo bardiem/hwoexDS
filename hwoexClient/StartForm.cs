@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using hwoexClient.Service;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace hwoexClient
 {
@@ -39,9 +40,6 @@ namespace hwoexClient
                 panel1.Visible = true;
                 panel3.Visible = true;
                 workerReview1.Visible = true;
-                button1P.Visible = true;
-                button2P.Visible = false;
-                button3P.Visible = false;
             }
             else
             {
@@ -86,9 +84,7 @@ namespace hwoexClient
             HidePanels();
             addUser1.Visible = true;
             panel2.Visible = false;
-            button1P.Visible = false;
-            button2P.Visible = false;
-            button3P.Visible = false;
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -100,9 +96,6 @@ namespace hwoexClient
             workerChanging1.Visible = true;
             sidePanel2.Top = button1T.Top;
             sidePanel2.Height = button1T.Height;
-            button1P.Visible = true;
-            button2P.Visible = false;
-            button3P.Visible = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -115,17 +108,14 @@ namespace hwoexClient
             workerReview1.Visible = true;
             sidePanel2.Top = button1T.Top;
             sidePanel2.Height = button1T.Height;
-            button1P.Visible = true;
-            button2P.Visible = false;
-            button3P.Visible = false;
+
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             HidePanels();
             faq1.Visible = true;
-            button1P.Visible = false;
-            button2P.Visible = false;
+
         }
 
 
@@ -144,9 +134,6 @@ namespace hwoexClient
             {
                 companiesReview1.Visible = true;
                 companiesReview1.DataView.DataSource = db.FillExperiance(service.GetExperiances());
-                button1P.Visible = false;
-                button2P.Visible = false;
-                button3P.Visible = true;
             }
             else if (sidePanel1.Top == button2.Top)
             {
@@ -167,9 +154,7 @@ namespace hwoexClient
             {
                 educationReview1.Visible = true;
                 educationReview1.DataView.DataSource = db.FillEducation(service.GetEducations());
-                button1P.Visible = false;
-                button2P.Visible = true;
-                button3P.Visible = false;
+
 
             }
             else if (sidePanel1.Top == button2.Top)
@@ -189,9 +174,7 @@ namespace hwoexClient
             {
                 workerReview1.Visible = true;
                 workerReview1.DataView.DataSource = db.FillWorkers(service.GetWorkers());
-                button1P.Visible = true;
-                button2P.Visible = false;
-                button3P.Visible = false;
+
 
             } else if(sidePanel1.Top == button2.Top)
             {
@@ -204,6 +187,7 @@ namespace hwoexClient
         {
             companiesReview1.DataView.DataSource = db.FillExperiance(service.SelectFromExperiance(companiesReview1.TextBox1.Text, companiesReview1.TextBox2.Text,
     companiesReview1.TextBox3.Text, companiesReview1.TextBox4.Text));
+            addUser1.ClearTextBoxes(3);
         }
 
 
@@ -211,12 +195,14 @@ namespace hwoexClient
         {
             educationReview1.DataView.DataSource = db.FillEducation(service.SelectFromEducation(educationReview1.TextBox1.Text, educationReview1.TextBox2.Text,
                 educationReview1.TextBox3.Text, educationReview1.TextBox4.Text));
+            addUser1.ClearTextBoxes(2);
         }
 
         private void workerReview1_btnSearchClick(object sender, EventArgs e)
         {
             workerReview1.DataView.DataSource = db.FillWorkers(service.SelectFromWorkers(workerReview1.TextBox1.Text, workerReview1.TextBox2.Text,
                 workerReview1.TextBox3.Text, workerReview1.TextBox4.Text, workerReview1.TextBox5.Text, workerReview1.TextBox6.Text, workerReview1.TextBox7.Text, workerReview1.TextBox8.Text));
+            addUser1.ClearTextBoxes(2);
         }
 
         private void button3P_Click(object sender, EventArgs e)
@@ -247,14 +233,18 @@ namespace hwoexClient
             
             service.InsertEducation(addUser1.TextBox1E.Text, addUser1.TextBox2E.Text, addUser1.TextBox3E.Text, addUser1.TextBox4E.Text,
                 addUser1.TextBox5E.Text, addUser1.TextBox6E.Text, addUser1.TextBox7E.Text, addUser1.TextBox8E.Text);
+            addUser1.ClearTextBoxes(2);
         }
+
 
         private void addUser1_btnAddExperianceClick(object sender, EventArgs e)
         {
-
+            
             service.InsertExperience(addUser1.TextBox1C.Text, addUser1.TextBox2C.Text, addUser1.TextBox3C.Text, addUser1.TextBox4C.Text,
                 addUser1.TextBox5C.Text, addUser1.TextBox6C.Text, addUser1.TextBox7C.Text, addUser1.TextBox8C.Text);
+            addUser1.ClearTextBoxes(3);
         }
+
 
         private void addUser1_btnAddWorkerClick(object sender, EventArgs e)
         {
@@ -271,6 +261,7 @@ namespace hwoexClient
             service.InsertWorker(addUser1.TextBox1W.Text, addUser1.TextBox2W.Text, addUser1.TextBox3W.Text, addUser1.TextBox4W.Text,
                 addUser1.TextBox5W.Text, addUser1.TextBox6W.Text, addUser1.TextBox7W.Text, addUser1.TextBox8W.Text,
                 addUser1.TextBox9W.Text, addUser1.TextBox10W.Text, addUser1.TextBox11W.Text, addUser1.TextBox12W.Text);
+            addUser1.ClearTextBoxes(1);
         }
 
         private void companiesChanging1_btnDeleteClick(object sender, EventArgs e)
